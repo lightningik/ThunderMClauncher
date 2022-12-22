@@ -1,6 +1,5 @@
 <template>
   <div class="hero">
-    <div class="hero-overlay bg-opacity-60"></div>
     <div class="card-one">
       <div class="container">
         <h1>Thunder MC</h1>
