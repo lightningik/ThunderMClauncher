@@ -36,7 +36,7 @@ module.exports = async (client, options) => {
 
     getFetchOptions.headers.Authorization = `Bearer ${MineServicesResponse.access_token}`
     const MineEntitlements = await fetch(MCSEntitlement, getFetchOptions).then(checkStatus)
-    if (MineEntitlements.items.length === 0) throw Error('This user does not have any items on its accounts.')
+    if (MineEntitlements.items.length === 0) throw Error('This user does not have any items on its accounts according to the api.')
 
     const MinecraftProfile = await fetch(MCSProfile, getFetchOptions).then(checkStatus)
     if (!MinecraftProfile.id) throw Error('This user does not own Minecraft.')
