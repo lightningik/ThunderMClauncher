@@ -1,7 +1,7 @@
 {
   "name": "tauri-vue-mclauncher",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "repository": {
     "url": "https://github.com/LightningYTlol/ThunderMClauncher.git"
