@@ -21,7 +21,7 @@
           </router-link>
         </div>
 
-        <button id="loginOptionMicrosoft" class="loginOptionButton">
+        <button id="loginOptionMicrosoft" class="loginOptionButton" @click="mslogin">
 
           <i class="fa-brands fa-microsoft"></i>
           <span>Login with Microsoft</span>
@@ -33,7 +33,9 @@
     </div>
     <div class="card-two">
       <div class="container_two">
-
+        <div>
+          <ChangeLog />
+        </div>
       </div>
     </div>
   </div>
@@ -44,19 +46,25 @@
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {computed} from "vue";
 import {useRoute} from "vue-router";
+import ChangeLog from "../ChangeLog.vue";
+// import authenticate from "../../scripts/msauth.js";
 export default {
   props: {
     to: { type: String, required: true },
   },
   name: "Home",
-  components: {FontAwesomeIcon},
+  components: {ChangeLog, FontAwesomeIcon},
   setup(props){
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
     return { isActive }
+  },
+  methods: {
+    // mslogin() {
+     // authenticate()
+     // }
   }
 }
-
 
 /**
 const loginOptionMicrosoft = document.getElementById("loginOptionMicrosoft")
@@ -76,6 +84,11 @@ loginOptionMicrosoft.onclick = (e) => {
   text-align: center;
   display: flex;
   justify-content: center;
+  justify-self: center;
+  bottom: 10px;
+  right: 60px;
+  position: absolute;
+  width: 240px;
 }
 
 .sidebar-items {
@@ -91,20 +104,79 @@ loginOptionMicrosoft.onclick = (e) => {
   height: 22px;
 }
 
-.card-one {
-  border-radius: 50px;
-  color: #BE83D4;
-  background: #311432;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  font-family: "Montserrat", sans-serif;
-  float: left;
-  position: fixed;
-  z-index: 1;
-  top: 10px;
-  padding: 0.5em;
-  height: 700px;
-  width: auto;
+@media(prefers-color-scheme: light) {
+  .card-one {
+    border-radius: 50px;
+    color: #BE83D4;
+    background: #FCA6C9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat", sans-serif;
+    float: left;
+    position: fixed;
+    z-index: 1;
+    top: 10px;
+    padding: 0.5em;
+    height: 700px;
+    width: auto;
+  }
+
+  .card-one:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .card-two {
+    border-radius: 50px;
+    color: #BE83D4;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat", sans-serif;
+    background: #FCA6C9;
+    float: top;
+    position: fixed;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    padding: 0.5em;
+    width: auto;
+    height: 700px;
+    min-width: 1010px
+  }
 }
+
+@media(prefers-color-scheme: dark){
+  .card-one {
+     border-radius: 50px;
+     color: #BE83D4;
+     background: #311432;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     font-family: "Montserrat", sans-serif;
+     float: left;
+     position: fixed;
+     z-index: 1;
+     top: 10px;
+     padding: 0.5em;
+     height: 700px;
+     width: auto;
+   }
+
+  .card-two {
+    border-radius: 50px;
+    color: #BE83D4;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat", sans-serif;
+    background: #311432;
+    position: fixed;
+    z-index: 1;
+    top: 10px;
+    right: 10px;
+    padding: 0.5em;
+    width: auto;
+    height: 700px;
+    min-width: 1010px
+  }
+
+
+}
+
 
 h1 {
   color: white;
@@ -117,23 +189,7 @@ h1 {
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
  }
 
-.card-two {
-  border-radius: 50px;
-  color: #BE83D4;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  font-family: "Montserrat", sans-serif;
-  float: top;
-  position: fixed;
-  z-index: 1;
-  top: 10px;
-  right: 10px;
-  padding: 0.5em;
-  width: auto;
-  height: 700px;
-  background: #311432 url("dist/assets/hero.png") no-repeat center;
-  background-size: cover;
-  min-width: 1010px
-}
+
 
 .divider{
   height: 5px;

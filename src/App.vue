@@ -1,5 +1,12 @@
-<script setup>
+<script>
+import Home from "./components/views/Home.vue";
 
+export default {
+  name: 'App',
+  components: {
+    Home
+  }
+}
 </script>
 
 <template>
