@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "url": "https://github.com/LightningYTlol/ThunderMClauncher.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -34,5 +37,18 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "auto-changelog": "^2.4.0",
     "vite": "^4.0.0"
+  },
+  "auto-changelog": {
+    "commitLimit": false,
+    "unreleased": true,
+    "replaceText": {
+      "[Ff]eature:": "",
+      "[Ff]ix:": "",
+      "[Bb]reak:": ""
+    },
+    "includeBranch": [
+      "develop",
+      "main"
+    ]
   }
 }
