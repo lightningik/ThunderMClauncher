@@ -2,7 +2,8 @@ name: 'publish release'
 
 on:
   push:
-    - release
+    branches:
+      - release
 
 jobs:
   create-release:
